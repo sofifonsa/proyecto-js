@@ -44,15 +44,25 @@ function saludar2(email, contraseña) {
 
 saludar2(email, contraseña);
 
+///////////////////////////////////////////////////////////////////////
+//Array con información del usuario//
 
+function Usuario(nombre, apellido, fecha_de_ingreso){
+    this.nombre = nombre
+    this.apellido = apellido
+    this.fecha_de_ingreso = fecha_de_ingreso
+}
 
+const USUARIO = new Usuario("Sofia", "Fonsalido", 2023);
+console.log(USUARIO);
+///////////////////////////////////////////////////////////////////////
 
 
 //calcular el precio de tu viaje//
 
 function sumar() {
-    let num1= parseFloat(prompt("Ingresa el precio del vuelo que has conseguido"));
-    let num2= parseFloat(prompt("Ingresa el precio del pack Working Holiday de tu interés"));
+    let num1= parseFloat(prompt("Ingresa el precio en Euros del vuelo que has conseguido"));
+    let num2= parseFloat(prompt("Ingresa el precio en Euros del pack Working Holiday de tu interés"));
     let suma= num1 + num2
     alert("Tu nuevo viaje de Working Holiday a Irlanda cuesta: " + " " + "$" + suma)
     console.log("la suma es" + " " + suma);
@@ -60,6 +70,46 @@ function sumar() {
 
 
 sumar();
+
+///////////////////////////////////////////////////////////////////////////////////
+//Carrito de compras de viaje//
+
+const CARRITO =[ 
+    {
+        producto: "Viaje a Dublin",
+        precio: 2950
+    },
+    {
+        producto: "Viaje a Cork",
+        precio: 2550
+    },    
+    {
+        producto: "Viaje a Galway",
+        precio: 2760
+    },  
+]
+
+
+let precioTotal = 0;
+for(const item of CARRITO){
+    precioTotal += item.precio;
+}
+
+console.log("el precio total del viaje es : EUR" + precioTotal);
+
+//Carrito de productos ordenados por valor//
+
+const CARRITO2 = [
+    {producto: "Dublin", precio:2950},
+    {producto: "Cork", precio:2550},
+    {producto: "Galway", precio:2760},
+]
+
+let productosOrdenados = CARRITO2.slice().sort((a,b) => a.precio - b.precio);
+console.log(productosOrdenados);
+
+//////////////////////////////////////////////////////////////////////////////////////
+
 
 //preguntar si esta conforme con los servicios //
 
