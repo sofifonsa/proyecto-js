@@ -47,7 +47,7 @@ function cards(){
         productoElement.classList.add(`producto`);
         productoElement.innerHTML = `
         <h3>${producto.nombre}</h3>
-        <p>${"EUR" + producto.precio}</p>
+        <p>${"USD" + producto.precio}</p>
         <button onclick ="agregarProducto('${producto.id}','${producto.nombre}','${producto.precio}')">Agregar al carrito</button>
         
 
@@ -61,7 +61,52 @@ function cards(){
 mostrarCarrito();
 cards();
 
+const cotizador = "https://criptoya.com/api/dolar"
 
+const divcotizador = document.getElementById("divcotizador");
+
+setInterval (()=>{
+    fetch (cotizador)
+    .then(response => response.json())
+    .then(({oficial,blue})=>{
+    divcotizador.innerHTML = `
+    <h3>Valorización del Dólar actual</h3>
+    <p>Dólar Oficial:${oficial}</p>
+    <p>Dólar Blue:${blue}</p>
+    `
+    })
+    .catch (error => console.log (error))
+},2000);
+
+const BOTON = document.getElementById("boton");
+
+let carrito = ["Galway", "Dublin", "Cork"];
+
+BOTON.addEventListener("click", () => {
+    Swal.fire({
+        title: "¿Estas conforme con la compra de tu viaje?",
+        icon: "warning",
+        confirmButtonText: "Si",
+        showCancelButton: true,
+        cancelButtonText: "No",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            carrito = carrito.filter((producto) => producto !== "bateria");
+            console.log(carrito);
+            Swal.fire({
+                title: "¡Bienvenid@! te enviaremos los detalles por mail",
+                icon: "success",
+                confirmButtonText: "aceptar",
+            });
+        } else {
+            Swal.fire({
+                title: "Has cancelado la compra",
+                icon: "error",
+                confirmButtonText: "Aceptar",
+            });
+        }
+    });
+});
 
 
 

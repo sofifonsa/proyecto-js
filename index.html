@@ -11,13 +11,20 @@
     <section id="carrito" class="carrito-container">
         <h2>Viajes seleccionados</h2>
         <ul id="lista-productos"></ul>
-        <p>Total de tu compra:EUR <span id="total">0</span></p>
+        <p>Total de tu compra:USD <span id="total">0</span></p>
         <button onclick="limpiarCarrito()">Limpiar Carrito</button>
     </section>
 
     <h2>Viajes</h2>
 
     <div id="productos" class="cards"></div>
+
+    <div id="divcotizador">
+        <h3>Valorización del Dólar actual</h3>
+        <p>Dólar Oficial:</p>
+        <p>Dólar Blue:</p>
+    </div>
+    <button class="btn btn-primary m-5" id="boton">Confirma tu compra</button>
 
 </main>
 
@@ -75,6 +82,7 @@
 </footer>
 </div>
 <script src="./js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
